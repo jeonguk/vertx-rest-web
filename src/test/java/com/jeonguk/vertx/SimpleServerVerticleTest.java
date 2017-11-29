@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import io.vertx.core.Vertx;
-import io.vertx.core.VertxOptions;
 import io.vertx.ext.unit.Async;
 import io.vertx.ext.unit.TestContext;
 import io.vertx.ext.unit.junit.VertxUnitRunner;
@@ -19,10 +18,7 @@ public class SimpleServerVerticleTest {
 	@Before
 	public void setup(TestContext testContext) {
 
-		VertxOptions options = new VertxOptions(); 
-		options.setMaxEventLoopExecuteTime(Long.MAX_VALUE);
-		
-		vertx = Vertx.vertx(options);
+		vertx = Vertx.vertx();
 
 		vertx.deployVerticle(SimpleServerVerticle.class.getName(), testContext.asyncAssertSuccess());
 	}

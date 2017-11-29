@@ -8,7 +8,6 @@ import com.jeonguk.vertx.model.Article;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
 import io.vertx.core.Vertx;
-import io.vertx.core.VertxOptions;
 import io.vertx.core.json.Json;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
@@ -18,9 +17,7 @@ public class RestServiceVerticle extends AbstractVerticle {
     private static final Logger LOGGER = LoggerFactory.getLogger(RestServiceVerticle.class);
     
     public static void main(String[] args) {
-		VertxOptions options = new VertxOptions(); 
-		options.setMaxEventLoopExecuteTime(Long.MAX_VALUE);
-        Vertx vertx = Vertx.vertx(options);
+        Vertx vertx = Vertx.vertx();
         vertx.deployVerticle(new RestServiceVerticle());
     }
     
