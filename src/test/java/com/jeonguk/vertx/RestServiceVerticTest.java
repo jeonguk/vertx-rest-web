@@ -35,7 +35,7 @@ public class RestServiceVerticTest {
 	public void givenId_whenReceivedArticle_thenSuccess(TestContext testContext) {
 		final Async async = testContext.async();
 
-		vertx.createHttpClient().getNow(8080, "localhost", "/api/baeldung/articles/article/123", response -> {
+		vertx.createHttpClient().getNow(8080, "localhost", "/api/articles/article/123", response -> {
 			response.handler(responseBody -> {
 				testContext.assertTrue(responseBody.toString().contains("\"id\" : \"123\""));
 				async.complete();
